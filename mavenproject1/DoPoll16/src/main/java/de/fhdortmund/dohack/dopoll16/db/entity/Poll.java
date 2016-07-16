@@ -6,18 +6,26 @@
 package de.fhdortmund.dohack.dopoll16.db.entity;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Sebastian
  */
 @Entity
+@Table(name = "dp_poll")
 public class Poll {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
+    @Column(name = "dp_thema")
     private String thema;
     private String question;
     private String[] answer;

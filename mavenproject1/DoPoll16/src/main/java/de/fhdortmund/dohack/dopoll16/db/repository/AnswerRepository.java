@@ -5,10 +5,13 @@
  */
 package de.fhdortmund.dohack.dopoll16.db.repository;
 
+import de.fhdortmund.dohack.dopoll16.db.entity.Answer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  *
  * @author Sebastian
  */
-public interface AnswerRepository {
+public interface AnswerRepository extends JpaRepository<Answer, Integer>{
     
 }
