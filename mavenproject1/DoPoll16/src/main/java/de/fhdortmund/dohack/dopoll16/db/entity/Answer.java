@@ -17,6 +17,7 @@ public class Answer {
     private Poll poll;
     private String answer;
     private Date answeredAt;
+    private int count;
 
     public Answer(){
         
@@ -27,8 +28,15 @@ public class Answer {
         this.poll = poll;
         this.answer = answer;
         this.answeredAt = answeredAt;
+        this.count++;
     }
     
+    public int getCount(){
+        return count;
+    }
+    public void setCount(int count){
+        this.count = count;
+    }
     public String getId() {
         return id;
     }
