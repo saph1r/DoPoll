@@ -24,17 +24,17 @@ public class AnswerRest {
      @Autowired
     private AnswerService answerService;
     
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/createAnswer", method = RequestMethod.POST)
     public AnswerDTO create(@RequestBody AnswerCreateDTO answerCreateDTO){
         return answerService.create(answerCreateDTO);
     }
     
-    @RequestMapping(value = "/getAll", method = {RequestMethod.GET, RequestMethod.DELETE})
+    @RequestMapping(value = "/getAllAnswer", method = {RequestMethod.GET, RequestMethod.DELETE})
     public List<AnswerDTO> getAll(){
         return answerService.getAll();
     }
     
-    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getByIdAnswer/{id}", method = RequestMethod.GET)
     public AnswerDTO getById(@PathVariable(value =  "id") int id){
         return answerService.getById(id);
     }
