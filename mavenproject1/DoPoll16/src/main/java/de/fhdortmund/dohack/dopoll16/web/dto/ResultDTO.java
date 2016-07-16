@@ -44,7 +44,7 @@ public class ResultDTO {
         }
         double tmp;
         for(Entry<String, Integer> eintrag : resultDTO.getMap().entrySet()){
-            tmp = eintrag.getValue()/zahl * 100;
+            tmp = (double)eintrag.getValue()/zahl * 100;
             eintrag.setValue((int)tmp);
         }
         return resultDTO;
