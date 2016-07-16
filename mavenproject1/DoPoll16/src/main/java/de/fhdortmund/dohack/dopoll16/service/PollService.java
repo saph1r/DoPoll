@@ -8,10 +8,12 @@ package de.fhdortmund.dohack.dopoll16.service;
 
 import de.fhdortmund.dohack.dopoll16.db.entity.Answer;
 import de.fhdortmund.dohack.dopoll16.db.entity.Poll;
+import de.fhdortmund.dohack.dopoll16.db.repository.AnswerRepository;
 import de.fhdortmund.dohack.dopoll16.db.repository.PollRepository;
 import de.fhdortmund.dohack.dopoll16.web.dto.AnswerDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollCreateDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollDTO;
+import de.fhdortmund.dohack.dopoll16.web.dto.ResultDTO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +30,9 @@ public class PollService {
     
     @Autowired
     private PollRepository pollRepository;
+    
+    @Autowired
+    private AnswerRepository answerRepository;
     
     public PollDTO create(PollCreateDTO pollCreateDTO){
         Poll poll = new Poll();
@@ -69,9 +74,37 @@ public class PollService {
         a.setPoll(id);
         a.setAnswer(answer);
         a.setAnsweredAt(new Date());
-        
+        answerRepository.save(a);
         AnswerDTO answerDTO = new AnswerDTO();
         BeanUtils.copyProperties(a, answerDTO);
         return answerDTO;
+    }
+    public ResultDTO getResult(int pollId){
+        Poll poll = pollRepository.findOne(pollId);
+        PollDTO pollDTO = new PollDTO();
+        BeanUtils.copyProperties(poll, pollDTO);
+        List<Answer> listeAnswer = answerRepository.findAll();
+        List<AnswerDTO> listeAnswerDTO = new ArrayList<AnswerDTO>();
+        AnswerDTO answerDTO; 
+        for(Answer a : listeAnswer){
+            answerDTO = new AnswerDTO();
+            BeanUtils.copyProperties(a, answerDTO);
+            listeAnswerDTO.add(answerDTO);
+        }
+        return ResultDTO.createResultDTO(pollDTO, listeAnswerDTO);
+    }
+    public ResultDTO getProcent(int pollId){
+        Poll poll = pollRepository.findOne(pollId);
+        PollDTO pollDTO = new PollDTO();
+        BeanUtils.copyProperties(poll, pollDTO);
+        List<Answer> listeAnswer = answerRepository.findAll();
+        List<AnswerDTO> listeAnswerDTO = new ArrayList<AnswerDTO>();
+        AnswerDTO answerDTO;
+        for(Answer a : listeAnswer){
+            answerDTO = new AnswerDTO();
+            BeanUtils.copyProperties(a, answerDTO);
+            listeAnswerDTO.add(answerDTO);
+        }
+        return ResultDTO.createResultDTOProcent(pollDTO, listeAnswerDTO);
     }
 }
