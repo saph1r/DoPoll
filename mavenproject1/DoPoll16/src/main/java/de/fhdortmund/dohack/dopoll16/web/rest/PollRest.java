@@ -9,6 +9,7 @@ import de.fhdortmund.dohack.dopoll16.service.PollService;
 import de.fhdortmund.dohack.dopoll16.web.dto.AnswerDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollCreateDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollDTO;
+import de.fhdortmund.dohack.dopoll16.web.dto.ResultDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,6 +45,16 @@ public class PollRest {
     }
     @RequestMapping(value = "/addAnswer/{id}/{answer}",method = RequestMethod.PUT)
     public AnswerDTO addAnswer(@PathVariable(value = "id")int pollId,@PathVariable(value = "answer") String answer){
-        
+        return pollService.addAnswer(pollId, answer);
+    }
+    @RequestMapping(value = "/getResult/{pollId}", method = RequestMethod.GET)
+    public ResultDTO getResult(@PathVariable(value = "pollId")int pollId)
+    {
+        return pollService.getResult(pollId);
+    }
+    @RequestMapping(value = "/getProcent/{pollId}",method = RequestMethod.GET)
+    public ResultDTO getProcent(@PathVariable(value = "pollId")int pollId)
+    {
+        return pollService.getProcent(pollId);
     }
 }

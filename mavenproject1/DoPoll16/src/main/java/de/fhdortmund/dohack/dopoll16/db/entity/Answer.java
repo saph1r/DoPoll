@@ -6,13 +6,20 @@
 package de.fhdortmund.dohack.dopoll16.db.entity;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author Sebastian
  */
+@Entity
 public class Answer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private int pollId;
     private String answer;
