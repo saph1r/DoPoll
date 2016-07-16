@@ -14,7 +14,7 @@ import java.util.Date;
 public class Answer {
 
     private String id;
-    private Poll poll;
+    private int pollId;
     private String answer;
     private Date answeredAt;
 
@@ -22,9 +22,9 @@ public class Answer {
         
     }
 
-    public Answer(String id, Poll poll, String answer, Date answeredAt) {
+    public Answer(String id, int pollId, String answer, Date answeredAt) {
         this.id = id;
-        this.poll = poll;
+        this.pollId = pollId;
         this.answer = answer;
         this.answeredAt = answeredAt;
     }
@@ -37,12 +37,12 @@ public class Answer {
         this.id = id;
     }
 
-    public Poll getPoll() {
-        return poll;
+    public int getPoll() {
+        return pollId;
     }
 
-    public void setPoll(Poll poll) {
-        this.poll = poll;
+    public void setPoll(int pollId) {
+        this.pollId = pollId;
     }
 
     public String getAnswer() {

@@ -13,8 +13,8 @@ import java.util.Date;
  * @author Sebastian
  */
 public class AnswerDTO {
-    private String id;
-    private Poll poll;
+     private String id;
+    private int pollId;
     private String answer;
     private Date answeredAt;
 
@@ -22,9 +22,9 @@ public class AnswerDTO {
         
     }
 
-    public AnswerDTO(String id, Poll poll, String answer, Date answeredAt) {
+    public AnswerDTO(String id, int pollId, String answer, Date answeredAt) {
         this.id = id;
-        this.poll = poll;
+        this.pollId = pollId;
         this.answer = answer;
         this.answeredAt = answeredAt;
     }
@@ -37,12 +37,12 @@ public class AnswerDTO {
         this.id = id;
     }
 
-    public Poll getPoll() {
-        return poll;
+    public int getPoll() {
+        return pollId;
     }
 
-    public void setPoll(Poll poll) {
-        this.poll = poll;
+    public void setPoll(int pollId) {
+        this.pollId = pollId;
     }
 
     public String getAnswer() {
@@ -60,4 +60,5 @@ public class AnswerDTO {
     public void setAnsweredAt(Date answeredAt) {
         this.answeredAt = answeredAt;
     }
+    
 }

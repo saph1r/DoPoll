@@ -6,6 +6,7 @@
 package de.fhdortmund.dohack.dopoll16.web.rest;
 
 import de.fhdortmund.dohack.dopoll16.service.PollService;
+import de.fhdortmund.dohack.dopoll16.web.dto.AnswerDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollCreateDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollDTO;
 import java.util.List;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -41,5 +41,9 @@ public class PollRest {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
     public PollDTO getById(@PathVariable(value =  "id") int id){
         return pollService.getById(id);
+    }
+    @RequestMapping(value = "/addAnswer/{id}/{answer}",method = RequestMethod.PUT)
+    public AnswerDTO addAnswer(@PathVariable(value = "id")int pollId,@PathVariable(value = "answer") String answer){
+        
     }
 }

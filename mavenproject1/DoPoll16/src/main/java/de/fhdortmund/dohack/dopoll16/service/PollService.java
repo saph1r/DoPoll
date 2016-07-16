@@ -6,11 +6,14 @@
 package de.fhdortmund.dohack.dopoll16.service;
 
 
+import de.fhdortmund.dohack.dopoll16.db.entity.Answer;
 import de.fhdortmund.dohack.dopoll16.db.entity.Poll;
 import de.fhdortmund.dohack.dopoll16.db.repository.PollRepository;
+import de.fhdortmund.dohack.dopoll16.web.dto.AnswerDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollCreateDTO;
 import de.fhdortmund.dohack.dopoll16.web.dto.PollDTO;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +61,17 @@ public class PollService {
             listeDTO.add(pollDTO);
         }
         return listeDTO;
+    }
+    
+    public AnswerDTO addAnswer(int id, String answer){
+        Answer a = new Answer();
         
+        a.setPoll(id);
+        a.setAnswer(answer);
+        a.setAnsweredAt(new Date());
+        
+        AnswerDTO answerDTO = new AnswerDTO();
+        BeanUtils.copyProperties(a, answerDTO);
+        return answerDTO;
     }
 }
