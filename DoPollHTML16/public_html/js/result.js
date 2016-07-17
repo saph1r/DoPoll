@@ -29,7 +29,7 @@ function results(){
 		dataType : "json",
 		success : function(data) {
                     console.log(data.map);
-                         $("#erg").html(data.map);
+                        
  
 				}
 });
