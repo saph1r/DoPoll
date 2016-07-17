@@ -1,0 +1,14 @@
+de\fhdortmund\dohack\dopoll16\web\dto\ResultDTO.class
+de\fhdortmund\dohack\dopoll16\service\AnswerService.class
+de\fhdortmund\dohack\dopoll16\web\dto\AnswerCreateDTO.class
+de\fhdortmund\dohack\dopoll16\service\PollService.class
+de\fhdortmund\dohack\dopoll16\web\dto\PollCreateDTO.class
+de\fhdortmund\dohack\dopoll16\db\entity\Poll.class
+de\fhdortmund\dohack\dopoll16\web\rest\AnswerRest.class
+de\fhdortmund\dohack\dopoll16\db\entity\Answer.class
+de\fhdortmund\dohack\dopoll16\Start.class
+de\fhdortmund\dohack\dopoll16\web\rest\PollRest.class
+de\fhdortmund\dohack\dopoll16\db\repository\PollRepository.class
+de\fhdortmund\dohack\dopoll16\web\dto\PollDTO.class
+de\fhdortmund\dohack\dopoll16\web\dto\AnswerDTO.class
+de\fhdortmund\dohack\dopoll16\db\repository\AnswerRepository.class
